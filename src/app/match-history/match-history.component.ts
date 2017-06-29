@@ -149,4 +149,7 @@ export class MatchHistoryComponent implements OnInit {
     this.loadData();
   }
 
+  closeMatch() {
+    this.selectedMatch = null;
+  }
 }

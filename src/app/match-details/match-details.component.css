@@ -93,3 +93,7 @@
 .back-img{
     background-image: url("../../assets/field-back.jpg");
 }
+
+.pull-right{
+    margin-left: 65%;
+}

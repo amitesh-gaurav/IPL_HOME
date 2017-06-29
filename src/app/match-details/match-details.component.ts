@@ -9,7 +9,8 @@ export class MatchDetailsComponent implements OnInit {
 
   @Input() match: Match;
   @Output() statTypeEmitter: EventEmitter<string> = new EventEmitter();
-
+  @Output() closeMatchEmitter:EventEmitter<Boolean> = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit() {

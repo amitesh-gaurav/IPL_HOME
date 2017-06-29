@@ -26,7 +26,7 @@ export class SearchableDropdownComponent implements OnInit {
     this.selectedValue = "";
 
     Observable.fromEvent(target, "keyup").map(e => e["target"].value).debounceTime(this.debounce).subscribe((searchText) => {
-      if (searchText == undefined || searchText.length == 0) {
+      if (searchText == undefined || searchText.length < 3) {
         this.selectedValue = 'All Data';
         this.displayData = this.data.slice(0, 5);
       }
@@ -36,10 +36,6 @@ export class SearchableDropdownComponent implements OnInit {
           return item.replace(/\s/g, '').toLowerCase().indexOf(searchText.replace(/\s/g, '').toLowerCase()) != -1;
         });
         this.displayData = displayData.slice(0, displayData.length > 5 ? 5 : displayData.length);
-      }
-
-      if (this.displayData.length == 1) {
-        this.selectedValue = this.displayData[0];
       }
     });
   }

@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from "RxJS/Rx";
 import 'rxjs/add/operator/map'
 import { Match } from './class-templates/match';
+import { Delivery } from './class-templates/delivery';
 import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class MatchDataService {
@@ -57,13 +58,13 @@ export class MatchDataService {
   }
 
 
-  private CSVTOJSONDeliveries(CSVdata: string): Array<any> {
-    let resultJSON: Array<any> = [];
+  private CSVTOJSONDeliveries(CSVdata: string): Array<Delivery> {
+    let resultJSON: Array<Delivery> = [];
     let rows = CSVdata.split("\n");
     let headers = ["match_id", "inning", "batting_team", "bowling_team", "over", "ball", "batsman", "non_striker", "bowler", "is_super_over", "wide_runs", "bye_runs", "legbye_runs", "noball_runs", "penalty_runs", "batsman_runs", "extra_runs", "total_runs", "player_dismissed", "dismissal_kind", "fielder"];
     for (let i = 0; i < rows.length - 1; i++) {
       let col = rows[i].split(",");
-      let delivery = {};
+      let delivery = {"match_id":"", "inning":"", "batting_team":"", "bowling_team":"", "over":"", "ball":"", "batsman":"", "non_striker":"", "bowler":"", "is_super_over":"", "wide_runs":"", "bye_runs":"", "legbye_runs":"", "noball_runs":"", "penalty_runs":"", "batsman_runs":"", "extra_runs":"", "total_runs":"", "player_dismissed":"", "dismissal_kind":"", "fielder":""};
       for (let j = 0; j < headers.length; j++) {
         delivery[headers[j]] = col[j];
       }

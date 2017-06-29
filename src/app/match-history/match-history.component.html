@@ -30,12 +30,9 @@
       </ul>
     </div>
     <div class="col-xs-5" *ngIf="selectedMatch!=null">
-      <app-match-details [match]="selectedMatch" (statTypeEmitter)="loadMatchStats($event,matchStatsModal)"></app-match-details>
+      <app-match-details [match]="selectedMatch" (statTypeEmitter)="loadMatchStats($event,matchStatsModal)" (closeMatchEmitter)="closeMatch()"></app-match-details>
     </div>
     <div class="col-xs-1" *ngIf="selectedMatch!=null">
-    </div>
-    <div class="col-xs-1 left-margin" *ngIf="selectedMatch!=null">
-      <div class="btn btn-danger" (click)="selectedMatch=null">&times;</div>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="details">
   <ul class="list-group">
     <li class="list-group-item back-col">
-      <span class="details-match">Match #{{match.id}}, <i><b>IPL</b></i> {{match.season}}</span>
+      <span class="details-match">Match #{{match.id}}, <i><b>IPL</b></i> {{match.season}}</span> <span class="btn btn-danger pull-right" (click)="closeMatchEmitter.emit(true)">&times;</span>
     </li>
     <li class="list-group-item back-img">
       <div class="btn-group-vertical match">

@@ -1,0 +1,23 @@
+export interface Delivery{
+    match_id:string;
+    inning:string;
+    batting_team:string;
+    bowling_team:string;
+    over:string;
+    ball:string;
+    batsman:string;
+    non_striker:string;
+    bowler:string;
+    is_super_over:string;
+    wide_runs:string;
+    bye_runs:string;
+    legbye_runs:string;
+    noball_runs:string;
+    penalty_runs:string;
+    batsman_runs:string;
+    extra_runs:string;
+    total_runs:string;
+    player_dismissed:string;
+    dismissal_kind:string;
+    fielder:string;
+}
