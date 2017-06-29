@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <!--<li class="list-group-item" *ngFor="let match of matches | paginate: { itemsPerPage: 10, currentPage: page }" (click)="emitSelectedMatch(match)">{{match.id}} | {{match.season}} | {{match.city}} | {{match.date | userFriendlyDate}} | {{match.team1 | shortTeamName}}
+    | {{match.team2 | shortTeamName}}</li>-->
+
+  <li class="list-group-item" *ngFor="let match of matches" (click)="emitSelectedMatch(match)">
+    <div class="btn-group btn-group-lg match" [class.selected-match]="selectedMatch==match">
+      <button type="button" class="btn btn-success index">{{match.id}}<span *ngFor="let padding of getPaddingLength(match.id)">&nbsp;</span></button>
+      <button type="button" class="btn btn-primary card" [ngClass]="match.team1 | shortTeamName">{{match.team1 | shortTeamName}}</button>
+      <button type="button" class="btn btn-primary card vs"> VS </button>
+      <button type="button" class="btn btn-primary card" [ngClass]="match.team2 | shortTeamName">{{match.team2 | shortTeamName}}</button>
+    </div>
+  </li>
+</ul>

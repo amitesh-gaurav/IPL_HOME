@@ -1,0 +1,99 @@
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+}
+.dark-modal .close {
+    color: white;   
+}
+
+li{
+    cursor: pointer;
+    background: #414A4C;
+}
+
+
+.card{
+    font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 36px;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 26.4px;
+    text-shadow:
+    -0.5px -0.5px 0 #e3dcd8,
+    0.5px -0.5px 0 #e3dcd8,
+    -0.5px 0.5px 0 #e3dcd8,
+    0.5px 0.5px 0 #e3dcd8;
+    -webkit-transition: scale -webkit-transform 0.3s; 
+    transition: scale duration 0.3s;
+    width:33.34%;
+}
+.card:hover{
+    border-color: transparent;
+}
+.match{
+    width:100%;
+    border: 0.2px solid transparent;
+    border-radius: 5px;
+}
+
+.match:hover{
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+    border: 0.2px solid black;
+}
+
+.selected-match{
+    transform: scale(1.08);
+    border: 0.2px solid black;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+.CSK{
+    background:#feff1f;
+}
+.RPS{
+    background:#952c95;
+}
+.KKR{
+    background:#2a1840;
+}
+.RCB{
+    background:#ff2a40;
+}
+.KXIP{
+    background:#C21C1E;
+}
+.RR{
+    background: #254AA5;
+}
+.DD{
+    background: #770101;
+}
+.DC{
+    background:#B4B4B2;
+}
+.MI{
+    background: #004C8F;
+}
+.PW{
+    background: #fec80e;
+}
+.SH{
+    background: #ea6932;
+}
+.GL{
+    background: #f8d402;
+}
+.KTK{
+    background: #684b67;
+}
+.vs{
+    background-color: #eee;
+    color:#223d8a;
+}
+
+.index{
+    color:black;
+}
+    

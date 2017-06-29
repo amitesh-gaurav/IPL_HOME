@@ -1,0 +1,8 @@
+<div ngbDropdown class="d-inline-block">
+  <input type="text" class="btn btn-secondary" [id]="randomId" ngbDropdownToggle [value]="selectedValue" placeholder="Type To Search"
+    (focus)="bindSearchEvent($event.target)">
+  <div class="dropdown-menu dropdown-menu-right" [attr.aria-labelledby]="randomId">
+    <label class="dropdown-item left-align" (click)="emitSelectedData('All Data')">All Data</label>
+    <label class="dropdown-item left-align" *ngFor="let data of displayData" (click)="emitSelectedData(data)">{{data}}</label>
+  </div>
+</div>

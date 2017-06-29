@@ -1,0 +1,9 @@
+<form class="form-inline">
+  <div class="form-group">
+    <span *ngFor="let sortKey of sortKeys; let i = index" class="space" (click)="emitSortType(sortKey, i)"><label class="btn btn-outline-primary">{{sortKey.type | userFriendlyParamName}} <span *ngIf="sortKey.value;else elsePart" class="rotate-up">&#10141;</span>
+    <ng-template
+      #elsePart><span class="rotate-down">&#10141;</span></ng-template>
+      </label>
+      </span>
+  </div>
+</form>

@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+.CSK{
+    background:#feff1f;
+}
+.RPS{
+    background:#952c95;
+}
+.KKR{
+    background:#2a1840;
+}
+.RCB{
+    background:#ff2a40;
+}
+.KXIP{
+    background:#C21C1E;
+}
+.RR{
+    background: #254AA5;
+}
+.DD{
+    background: #770101;
+}
+.DC{
+    background:#B4B4B2;
+}
+.MI{
+    background: #004C8F;
+}
+.PW{
+    background: #fec80e;
+}
+.SH{
+    background: #ea6932;
+}
+.GL{
+    background: #f8d402;
+}
+.KTK{
+    background: #684b67;
+}
+.vs{
+    background-color: #eee;
+    color:#223d8a;
+    opacity: 0.3;
+}
+
+.card{
+    font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 26.4px;
+    text-shadow:
+    -0.5px -0.5px 0 #e3dcd8,
+    0.5px -0.5px 0 #e3dcd8,
+    -0.5px 0.5px 0 #e3dcd8,
+    0.5px 0.5px 0 #e3dcd8;
+    width:605px;
+    height: 55px;
+    opacity: 0.75;
+    align-items: center;
+}
+
+.match{
+    width:100%;
+    border: 0.2px solid black;
+    border-radius: 5px;
+}
+.details{
+    background-color: #414A4C;
+    width:100%;
+    border: 3px solid black;
+    border-radius: 2.5px;
+}
+
+.back-col{
+    background-color: #414A4C;
+}
+.details-text{
+    font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+    color: white;
+}
+
+.details-match{
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    color: white;
+}
+.back-img{
+    background-image: url("../../assets/field-back.jpg");
+}

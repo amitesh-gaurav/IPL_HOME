@@ -1,0 +1,29 @@
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+}
+.dark-modal .close {
+    color: white;   
+}
+
+
+
+.selected{
+    background-color: #414A4C;
+}
+
+.connector{
+    height: 80px;
+    border: 1px solid transparent;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.panel-heading{
+    font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 26.4px;
+}

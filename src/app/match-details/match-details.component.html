@@ -1,0 +1,37 @@
+<div class="details">
+  <ul class="list-group">
+    <li class="list-group-item back-col">
+      <span class="details-match">Match #{{match.id}}, <i><b>IPL</b></i> {{match.season}}</span>
+    </li>
+    <li class="list-group-item back-img">
+      <div class="btn-group-vertical match">
+        <button type="button" class="btn btn-primary card" [ngClass]="match.team1 | shortTeamName">{{match.team1}}</button>
+        <button type="button" class="btn btn-primary card vs"> VS </button>
+        <button type="button" class="btn btn-primary card" [ngClass]="match.team2 | shortTeamName">{{match.team2}}</button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" (click) = "emitStat('stats')"><span class="details-match">Statistics <span class="glyphicon glyphicon-list"></span></span></button>
+          <button type="button" class="btn btn-success" (click) = "emitStat('live')"><span class="details-match">Live Simulation <span class="glyphicon glyphicon-play"></span></span></button>
+        </div>
+      </div>
+
+    </li>
+    <li class="list-group-item back-col">
+      <span class="details-match">Date - {{match.date | userFriendlyDate}} | Venue - {{match.venue}}, {{match.city}}</span>
+    </li>
+    <li class="list-group-item back-col">
+      <span class="details-match">{{match.toss_winner}} won the toss and chose to {{match.toss_decision}} first</span>
+    </li>
+    <li class="list-group-item back-col">
+      <span class="details-match">Result : 
+        <span *ngIf="match.result=='normal';else elsePart">{{match.winner}} {{match.dl_applied=="1"?"(D/L)":""}} won the match by {{match.win_by_wickets=="0"?match.win_by_runs + " runs":match.win_by_wickets + " wickets"}}</span>
+      <ng-template #elsePart>Match Tied</ng-template>
+      </span>
+    </li>
+    <li class="list-group-item back-col">
+      <span class="details-match">Man of the Match : {{match.player_of_match}}</span>
+    </li>
+    <li class="list-group-item back-col">
+      <span class="details-match">Umpires : {{match.umpire1}} | {{match.umpire2}} | {{match.umpire3}}</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,56 @@
+<div class="container-fluid margin">
+  <div class="">
+    <div class="row">
+      <div class="col-md-1">
+        <div class="btn-group-vertical match">
+          <button class="btn btn-outline-default" (click)="changeRefineType(true)">Filter</button>
+          <button class="btn btn-outline-default" (click)=changeRefineType(false)>Sort</button>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-11">
+        <app-match-filter *ngIf="refineType;else elsePart" [filterSetValue]="filterSetValue" [filterValue]="filterValue" [fromDate]="fromDate"
+          [toDate]="toDate" [minDate]="minDate" [maxDate]="maxDate" (filterEmitter)="applyFilters($event)"></app-match-filter>
+        <ng-template #elsePart>
+          <app-match-sorter [sortKeys]="sortKeys" (sortType)="changeSortType($event)"></app-match-sorter>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <app-match-list [matches]='displayMatches' [selectedMatch]="selectedMatch" (selectedMatchEmitter)="loadMatchDetails($event)"></app-match-list>
+      <br>
+      <ngb-pagination [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="5" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+    </div>
+    <div class="col-xs-1" *ngIf="selectedMatch!=null">
+      <ul class="list-group">
+        <li class="list-group-item connector" *ngFor="let match of displayMatches" [class.selected]="selectedMatch==match">
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-5" *ngIf="selectedMatch!=null">
+      <app-match-details [match]="selectedMatch" (statTypeEmitter)="loadMatchStats($event,matchStatsModal)"></app-match-details>
+    </div>
+    <div class="col-xs-1" *ngIf="selectedMatch!=null">
+    </div>
+    <div class="col-xs-1 left-margin" *ngIf="selectedMatch!=null">
+      <div class="btn btn-danger" (click)="selectedMatch=null">&times;</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #matchStatsModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Match #{{selectedMatch.id}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="c('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-match-stats [matchId]="selectedMatch.id" [statType]="statType"></app-match-stats>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

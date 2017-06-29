@@ -1,0 +1,33 @@
+<form class="form-inline">
+  <div class="form-group">
+    <span class="space" (click)="emitDefaultFilters()"><label class="btn btn-outline-danger">Remove Filters &times;</label></span>
+    <span *ngFor="let filterKey of filterKeys" class="space" (click)="showFilterMenu(filterKey)"><label class="btn btn-outline-primary">{{filterKey | userFriendlyParamName}}</label></span>
+    <span class="space" (click)="showFilterMenu('date')"><label class="btn btn-outline-primary">Date</label></span>
+  </div>
+</form>
+<form class="form-inline" *ngIf="filterSetValue">
+  <div class="form-group">
+    <span *ngFor="let filterKey of filterKeys">
+      <span class="space" *ngIf="selectedFilter == filterKey">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="space">{{selectedFilter | userFriendlyParamName}} : </label>
+            <app-searchable-dropdown [data] ="filterSetValue[selectedFilter]" [selectedValue] = "filterValue[selectedFilter]" (selectedValueEmitter)="emitFilters($event,selectedFilter)" class="space"></app-searchable-dropdown>
+          </div>
+        </form>
+      </span>
+    </span>
+    <span>
+      <span class="space" *ngIf="selectedFilter == 'date'">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="space">Date Range : </label>
+            <label class="space">From &nbsp;</label><app-date-picker [name]="'fromDate'" [selectDate]="fromDate" [minDate]="minDate" [maxDate]="maxDate" (dateEmitter)="emitFilters($event,'fromDate')"></app-date-picker>
+            <label class="space"> - </label>
+            <label class="space">To &nbsp;</label><app-date-picker [name]="'toDate'" [selectDate]="toDate" [minDate]="minDate" [maxDate]="maxDate" (dateEmitter)="emitFilters($event,'toDate')"></app-date-picker>
+          </div>
+        </form>
+      </span>
+    </span>
+  </div>
+</form>
