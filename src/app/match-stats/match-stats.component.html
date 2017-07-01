@@ -1,25 +1,80 @@
-<div>
-  <ngb-progressbar type="success" [value]="deliveryData?.length * 100/matchLength"></ngb-progressbar>
-</div>
-<div>
-  <ngb-tabset #tabbedContainer="ngbTabset">
-    <ngb-tab title={{team1}} [id]="team1">
-      <ng-template ngbTabContent>
-        <ul>
-          <li *ngFor="let batsman of bastmenRuns['1']">
-            {{batsman.name}} {{batsman.runs}} {{batsman.ballFaced}}
-          </li>
-        </ul>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab title="{{team2}}" [id]="team2">
-      <ng-template ngbTabContent>
-        <ul>
-          <li *ngFor="let batsman of bastmenRuns['2']">
-            {{batsman.name}} {{batsman.runs}} {{batsman.ballFaced}}
-          </li>
-        </ul>
-      </ng-template>
-    </ngb-tab>
-  </ngb-tabset>
-</div>
+<ngb-tabset #tabbedContainer="ngbTabset" class="score-container">
+  <ngb-tab title={{team1}} [id]="team1">
+    <ng-template ngbTabContent>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Batsman</th>
+            <th>Runs</th>
+            <th>Balls</th>
+            <th>6</th>
+            <th>4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let batsman of bastmenRuns['1']">
+            <td>
+              {{batsman.name}} {{onStrike==batsman.name?'*':''}} {{batsman.dismissed?batsman.dismissal_kind + ' ' + batsman.fielder:''}}
+            </td>
+            <td>
+              {{batsman.runs}}
+            </td>
+            <td>
+              {{batsman.ballFaced}}
+            </td>
+            <td>
+              {{batsman.sixes}}
+            </td>
+            <td>
+              {{batsman.fours}}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              Overs - {{overs}}.{{balls}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="{{team2}}" [id]="team2">
+    <ng-template ngbTabContent>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Batsman</th>
+            <th>Runs</th>
+            <th>Balls</th>
+            <th>6</th>
+            <th>4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let batsman of bastmenRuns['2']">
+            <td>
+              {{batsman.name}} {{onStrike==batsman.name && !batsman.dismissed?'*':''}} {{batsman.dismissed?batsman.dismissal_kind + ' ' + batsman.fielder:''}}
+            </td>
+            <td>
+              {{batsman.runs}}
+            </td>
+            <td>
+              {{batsman.ballFaced}}
+            </td>
+            <td>
+              {{batsman.sixes}}
+            </td>
+            <td>
+              {{batsman.fours}}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              Overs - {{overs}}.{{balls}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
